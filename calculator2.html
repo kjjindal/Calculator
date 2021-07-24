@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <title>Document</title>
+    <style>
+        body{
+            background-color:rgba(0, 0, 0,1)
+        }
+        h1{
+            text-align: center;
+            color: white;
+            font-style: italic;
+            font-variant: small-caps;
+            font-size:40px;
+        }
+        input{
+            border: none;
+            outline-width: 0;
+            width:281px;
+            height: 40px;
+            font-size: large;
+        }
+        table{
+            margin: auto;
+        }
+        button{
+            background-color: chartreuse;
+            width: 70px;
+            height: 70px;
+            cursor: pointer;
+
+        }
+        button:hover{
+            transform: scale(1.04);
+        }
+        /* .input1{
+            display: flex;
+            align-items: center;
+            background-color: white;
+        }
+        .fas{
+            font-size: 24px !important;
+    margin-right: 1px;
+        } */
+
+    </style>
+</head>
+
+<body>
+    <h1> Simple Calculator </h1>
+
+    <table>
+        <tr>
+            <td colspan="4">
+                    <input type="text" placeholder="0"  id="output" />
+
+                   
+             </td>
+        </tr>
+        <tr>
+            <td> <button> Sqrt </button>  </td>
+            <td> <button> % </button>  </td>
+
+               
+                 <td colspan="2">   <button style="width:140px;"><i class="fas fa-backspace"></i></button></td>
+        </tr>
+        <tr>
+            <td> <button> ^2 </button> </td>
+            <td> <button> sin</button> </td>
+            <td> <button> log10</button> </td>
+            <td> <button> C</button> </td>
+
+
+
+
+        </tr>
+        <tr>
+            <td> <button> 7 </button> </td>
+            <td> <button> 8</button> </td>
+            <td> <button> 9</button> </td>
+            <td> <button> X</button> </td>
+
+
+
+
+        </tr>
+        <tr>
+            <td> <button>4 </button> </td>
+            <td> <button> 5</button> </td>
+            <td> <button> 6</button> </td>
+            <td> <button> +</button> </td>
+
+        </tr>
+
+
+        <tr>
+            <td> <button> 1 </button> </td>
+            <td> <button> 2</button> </td>
+            <td> <button> 3</button> </td>
+            <td> <button> -</button> </td>
+
+        </tr>
+        <tr>
+            <td  colspan="2" > <button style="width:140px"> 0 </button> </td>
+            <td> <button>  / </button> </td>
+            <td> <button> =</button> </td>
+
+        </tr>
+    </table>
+
+    <script>
+
+
+var buttons=document.getElementsByTagName('button');
+var output=document.getElementById('output');
+for( item of buttons){
+    item.addEventListener('click',(e)=>{
+        var audio = new Audio('button.mp3');
+         audio.play();
+        var press=e.target.innerText;
+
+        if(press=="="){
+            output.value=eval(output.value);
+        }
+        else if(press=="Sqrt"){
+            output.value=Math.sqrt(output.value).toFixed(2);
+
+        }
+        else if(press=="C"){
+            output.value="";
+        }
+        else if(press=="X"){
+            output.value=output.value+"*";
+        }
+        else if(press=="^2"){
+            output.value=output.value*output.value;
+        }
+        else if(press=="sin"){
+            output.value=Math.sin(output.value).toFixed(2);
+        }
+        else if (press=="log10"){
+            output.value=Math.log10(output.value);
+        }
+        else if(press==""){
+            output.value=output.value.slice(0,output.value.length-1);
+        }
+        else{
+           output.value+=press
+
+        }
+
+
+     
+ 
+    })
+}
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
